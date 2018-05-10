@@ -17,17 +17,17 @@ console.log(max);
 
 // task #2
 
-const obj1 = { from: 1, to: 4, value: [4, 5, 12, 7, 5, 4], ignore: [2] };
+const obj1 = { from: 1, to: 4, value: [4, 5, 12, 7, 5, 4], ignore: [2, /*3*/] };
 
 let arrInitial = obj1["value"];
 let arrFinal = [];
 
+outer:
 for (let i = obj1["from"]; i <= obj1["to"]; i+=1) {
-	if (i != obj1["ignore"]) {arrFinal.push(arrInitial[i])};
+	for (const j of obj1["ignore"]) {
+		if (j == i) continue outer;
+	};
+	arrFinal.push(arrInitial[i]);
  };
 
 console.log(arrFinal.join(", "));
-
-
-// for (let i = obj1["from"];  i <= obj1["to"] && i !== obj1["ignore"]; i+=1)
- // ??? Почему нельзя во второе выражение вписывать сложное условие?
