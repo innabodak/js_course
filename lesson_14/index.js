@@ -5,6 +5,16 @@
 // то его необходимо обработать строку из эмодзи красного сердца и флага украины.
 
 
+// task #1 (only part 1 | только для символов из 2-х юникодов)
+function add(emoji){
+	let sum = 0;
+	for (let symbol of emoji) {
+		sum += symbol.charCodeAt(0) + symbol.charCodeAt(1);
+	}
+
+	return sum / (emoji.length / 2);
+}
+
 
 // task #2
 // Написать функцию clearNumbers, которая принимает один аргумент - массив массивов.
