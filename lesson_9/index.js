@@ -1,1 +1,1 @@
-console.log("Inna Bodak")
+console.log("Инна Бодак")
