@@ -1,0 +1,36 @@
+body {
+	color: grey;
+	box-sizing: border-box;
+}
+
+div#output {
+	display: inline-block;
+	vertical-align: middle;
+	min-width: 80px;
+}
+
+
+button {
+	display: inline-block;
+	vertical-align: middle;
+	background: transparent;
+	border-radius: 5px;
+	border: 2px solid lightgrey;
+	outline: none;
+	margin-left: 20px;
+}
+
+input {
+	display: none;
+}
+
+label {
+	border: 2px solid grey;
+	padding: 5px;
+	margin: 10px 15px 0 0;
+	display: inline-block;
+}
+
+input:checked + label {
+	color: red;
+} 
