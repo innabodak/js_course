@@ -97,14 +97,12 @@ function matrixDiff(arr1, arr2){
 let arrString = ['Bill', 'Kill', 'Song'];
 function strangeSearch(arrString){
 	const script = document.querySelector("script");
-	let div;
-	let input;
 
 	for (let i = 0; i < arrString.length; i++){
-		div = document.createElement("div");
+		const div = document.createElement("div");
 		document.body.insertBefore(div, script);
 
-		input = document.createElement("input");
+		const input = document.createElement("input");
 		input.setAttribute("type", "number");
 		input.value = 0;
 			
