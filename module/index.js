@@ -1,17 +1,31 @@
 
+// task #1
+// Написать функцию “itsMe”, которая принимает один аргумент - строку “a”.
+// Она должна вернуть строку “It’s me, {a}”, где вместо {a}, значение аргумента.
+// Если аргумент не был передан, вместо него должен быть использован ваш никнейм на
+// github. Так же, перед тем как вернуть значение, эта функция должна вывести строку в
+// консоль.
 
-function itsMe (a){
-	if (a) {
+function itsMe (a = "innabodak"){
+		console.log(`It’s me, ${a}`);
+
 		return `It’s me, ${a}`;
-
-	} else {
-		return "innabodak";
-	}
 }
 
-// let a = 3, b = 4;
+// task #2
+// Написать функцию “compare”, которая принимает два аргумента - два числа
+// Она должна вернуть строку:
+// “{первый} > {второй}”, если первое число больше второго.
+// “{первый} < {второй}”, если второе число больше первого.
+// “{первый} == {второй}”, если второе равняется первому.
+// “НЕ ЧИСЛО”, если один или оба аргумента не являются числами.
+// (вместо {первый} и {второй} -значения соответствующих аргументов)
+
 function compare(a,b){
-	if (a > b) {
+	if (typeof a !== "number" || 
+		typeof  b !== "number") {
+		return "НЕ ЧИСЛО";
+	} else if (a > b) {
 		return `${a} > ${b}`;
 
 	} else if (a < b) {
@@ -19,15 +33,14 @@ function compare(a,b){
 
 	} else if (a == b) {
 		return `${a} == ${b}`;
-
-	} else if (typeof a !== "number" ||
-		typeof  b !== "number") {
-		return "НЕ ЧИСЛО";
 	}
 } 
 
-// let n1 = 3, n2 = -4, n3 = 5;
-// let comparison = ">";
+// task #3
+// Написать функцию “row”, которая принимает 4 аргумента - 3 числа и строку которая
+// может быть ‘>’ или ‘<’
+// Она должна вернуть строку в которой числа стоят в порядке убывания или возрастания в
+// зависимости от аргумента строки.
 
 function row(n1, n2, n3, comparison){
 	let arr = [n1, n2, n3];
@@ -41,6 +54,9 @@ function row(n1, n2, n3, comparison){
 	return arr.join(" " + comparison + " ");
 }
 
+// task #4
+// Написать функцию “fact”, которая принимает 1 аргумент - число.
+// Она должна вернуть факториал числа.
 
 function fact(n){
 	let result = 1;
@@ -51,6 +67,12 @@ function fact(n){
 	return result;
 }
 
+
+// task #5
+// Написать функцию “matrixDiff”, которая принимает 2 аргумента, каждый из аргументов
+// это массив массивов чисел.
+// Она должна вернуть сумму абсолютных разниц соответствующих элементов этих
+// структур. И должна вернуть NaN, если размеры массивов не совпадают.
 
 let arr1 = [[2, 3], [4, 5]];
 let arr2 = [[2, 1], [6]];
@@ -71,17 +93,18 @@ function matrixDiff(arr1, arr2){
 	return result;
 }
 
-
+// task #6
 let arrString = ['Bill', 'Kill', 'Song'];
 function strangeSearch(arrString){
 	const script = document.querySelector("script");
 	let div;
+	let input;
 
 	for (let i = 0; i < arrString.length; i++){
 		div = document.createElement("div");
 		document.body.insertBefore(div, script);
 
-		const input = document.createElement("input");
+		input = document.createElement("input");
 		input.setAttribute("type", "number");
 		input.value = 0;
 			
@@ -95,23 +118,42 @@ function strangeSearch(arrString){
 	document.body.insertBefore(button, script);
 
 	button.addEventListener("click", () => {
-		window.location.href = "https://www.youtube.com/?gl=UA&app=desktop";
+		let arrDiv = document.querySelectorAll("div");
+		let arrText = [];
+		let textObj = [];
+
+		for (let j = 0; j < arrDiv.length; j++){
+			if (+arrDiv[j].children[0].value > 0){
+				textObj[0] = arrDiv[j].textContent;
+				textObj[1] = +arrDiv[j].children[0].value;
+				arrText.push(textObj);
+				textObj = [];
+			}
+		}
+
+		arrText.sort((a, b) => a[1] - b[1]);
+
+		let youTubeText = "";
+		for (let k = 0; k < arrText.length; k++){
+			youTubeText += arrText[k][0] + " ";
+		}
+
+		window.location.href = `https://www.youtube.com/results?search_query=${youTubeText}`;
 	});
+}	
 
-	const youTubeInput = document.getElementById("search");
-	// youTubeInput.innerHTML = youTubeText;
 
-	// let youTubeText;
-	// let arrDiv = []; 
-	// for (let j = 0; j < document.body.length; j++){
-	// 	if(input.value > 0) {
+		// let arrDiv = document.querySelectorAll("div");
+		// let youTubeText = "";
 
-	// 		arr.div.push(div[j]);
-	// 	}
-	// 	arr.sort((a, b) => a - b);
+		// for (let j = 0; j < arrDiv.length; j++){
+		// 	if (arrDiv[j].children[0].value !== "0"){
+		// 		youTubeText += arrDiv[j].textContent + " ";
+		// 	}
+		
+		// 	console.log(youTubeText);
+		// }
 
-	// 	youTubeText += div[j].textContent + " ";
-
-	// }
-
-}
+	// 	window.location.href = `https://www.youtube.com/results?search_query=${youTubeText}`;
+	// });
+// }
