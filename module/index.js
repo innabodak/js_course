@@ -118,14 +118,14 @@ function strangeSearch(arrString){
 	button.addEventListener("click", () => {
 		let arrDiv = document.querySelectorAll("div");
 		let arrText = [];
-		let textObj = [];
+		let textInput = [];
 
 		for (let j = 0; j < arrDiv.length; j++){
 			if (+arrDiv[j].children[0].value > 0){
-				textObj[0] = arrDiv[j].textContent;
-				textObj[1] = +arrDiv[j].children[0].value;
-				arrText.push(textObj);
-				textObj = [];
+				textInput[0] = arrDiv[j].textContent;
+				textInput[1] = +arrDiv[j].children[0].value;
+				arrText.push(textInput);
+				textInput = [];
 			}
 		}
 
