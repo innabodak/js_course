@@ -38,7 +38,8 @@ class AlevelStudent extends Human {
 
 	averageMark(){
 		let sum = this.marks.reduce((a,b) => {return a + b});
-		console.log(sum / this.marks.length);
+		let average = sum / this.marks.length;
+		console.log(average);
 	}
 }
 
@@ -74,7 +75,8 @@ console.log(student);*/
 
 // AlevelStudent.prototype.averageMark = function(){
 // 	let sum = this.marks.reduce((a,b) => {return a + b});
-// 	console.log(sum / this.marks.length);
+// 	let average = sum / this.marks.length;
+// 	console.log(average);
 // }
 
 // /*check*/
