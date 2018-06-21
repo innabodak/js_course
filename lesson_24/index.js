@@ -3,8 +3,6 @@
 
 const inpEmail = document.getElementById("email");
 const inpPhone = document.getElementById("phone");
-const emailError = document.querySelector('label[for="email"]');
-const phoneError = document.querySelector('label[for="phone"]');
 // textarea
 const content = document.getElementById("content");
 const emailListBtn = document.getElementById("search");
