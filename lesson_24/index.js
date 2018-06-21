@@ -16,34 +16,29 @@ const phoneCheck = /^\+38(\(0\d\d\))|(0\d\d)\d{3}[ _]?\d{2}[ _]?\d{2}$/;
 const emailCheck = /^[\w][\w-\.]{2,}[\w]\@(([a-z\d][\w-]+[a-z\d])|(\[[A-z\d\:\.]+\]))\.[a-z]{2,4}$/;
 const textEmailsCheck = /[\w][\w-\.]{2,}[\w]\@(([a-z\d][\w-]+[a-z\d])|(\[[A-z\d\:\.]+\]))\.[a-z]{2,4}/;
 
-inpEmail.addEventListener("blur", () =>{
-	if (!inpEmail.value){
-		inpEmail.style.border = "2px solid grey";
-		emailError.style.display = "none";
 
-	} else if(emailCheck.test(inpEmail.value)){
-		inpEmail.style.border = "2px solid limegreen";
-		emailError.style.display = "none";
+function inpValidation(input, pattern){
+	let label = document.querySelector(`label[for="${input.id}"]`);
+	if (!input.value){
+		input.style.border = "2px solid grey";
+		label.style.display = "none";
+
+	} else if(pattern.test(input.value)){
+		input.style.border = "2px solid limegreen";
+		label.style.display = "none";
 
 	} else {
-		inpEmail.style.border = "2px solid red";
-		emailError.style.display = "block";
+		input.style.border = "2px solid red";
+		label.style.display = "block";
 	}
+}
+
+inpEmail.addEventListener("blur", (e) =>{
+	inpValidation(e.target, emailCheck)
 });
 
-inpPhone.addEventListener("blur", () =>{
-	if (!inpPhone.value){
-		inpPhone.style.border = "2px solid grey";
-		phoneError.style.display = "none";
-
-	} else if(phoneCheck.test(inpPhone.value)){
-		inpPhone.style.border = "2px solid limegreen";
-		phoneError.style.display = "none";
-
-	} else 	{
-		inpPhone.style.border = "2px solid red";
-		phoneError.style.display = "block";
-	}
+inpPhone.addEventListener("blur", (e) =>{
+	inpValidation(e.target, phoneCheck)
 });
 
 emailListBtn.addEventListener("click", () => {
