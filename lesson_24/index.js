@@ -8,6 +8,7 @@ const content = document.getElementById("content");
 const emailListBtn = document.getElementById("search");
 const list = document.querySelector("ol");
 const noEmailFound = document.getElementById("noEmailFound");
+
 // validation
 const phoneCheck = /^\+38(\(0\d\d\))|(0\d\d)\d{3}[ _]?\d{2}[ _]?\d{2}$/;
 // const emailCheck = /^[\w][\w\D]{2,}[\w]\@(([a-z\d][\w-]+[a-z\d])|(\[[A-z\d\:\.]+\]))\.[a-z]{2,4}$/;
